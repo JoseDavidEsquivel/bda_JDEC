@@ -1,2 +1,1 @@
-# bda_JDEC
-Base de datos para aplicaciones
+# Base de datos para aplicaciones #
