@@ -1,19 +1,12 @@
 -- Crear la tabla "PERSONAS"
-CREATE TABLE PERSONAS (
-    ID_PERSONA INTEGER PRIMARY KEY AUTOINCREMENT,
-    NOMBRE TEXT NOT NULL,
-    APELLIDO_MATERNO TEXT NOT NULL,
-    APELLIDO_PATERNO TEXT NOT NULL,
-    EMAIL TEXT NOT NULL
+CREATE TABLE personas (
+    id_persona INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    apellido_materno TEXT NOT NULL,
+    apellido_paterno TEXT NOT NULL,
+    email TEXT NOT NULL
 );
 
--- Insertar los registros
-INSERT INTO PERSONAS (NOMBRE, APELLIDO_MATERNO, APELLIDO_PATERNO, EMAIL)
-VALUES ('Juan', 'Pérez', 'González', 'juan.perez@example.com');
+.mode csv
 
-INSERT INTO PERSONAS (NOMBRE, APELLIDO_MATERNO, APELLIDO_PATERNO, EMAIL)
-VALUES ('María', 'García', 'Hernández', 'maria.garcia@example.com');
-
-INSERT INTO PERSONAS (NOMBRE, APELLIDO_MATERNO, APELLIDO_PATERNO, EMAIL)
-VALUES ('Luis', 'Sánchez', 'Martínez', 'luis.sanchez@example.com');
-
+.import 'basededatos.csv' personas
