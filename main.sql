@@ -2,11 +2,15 @@
 CREATE TABLE personas (
     id_persona INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre TEXT NOT NULL,
-    apellido_materno TEXT NOT NULL,
-    apellido_paterno TEXT NOT NULL,
+    primer_apellido TEXT NOT NULL,
+    segundo_apellido TEXT NOT NULL,
     email TEXT NOT NULL
 );
 
 .mode csv
 
-.import 'basededatos.csv' personas
+.import 'export.csv' personas
+
+INSERT INTO personas(nombre,primer_apellido,segundo_apellido, email)
+SELECT nombre,primer_apellido,segundo_apellido, email
+FROM temporal;
