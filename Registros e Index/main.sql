@@ -1,0 +1,29 @@
+-- Crear la tabla "PERSONAS"
+CREATE TABLE personas (
+    id_persona INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    primer_apellido TEXT NOT NULL,
+    segundo_apellido TEXT NOT NULL,
+    email TEXT NOT NULL
+);
+
+.mode csv
+
+.import 'export.csv' temporal
+
+INSERT INTO personas(nombre,primer_apellido,segundo_apellido, email)
+SELECT nombre,primer_apellido,segundo_apellido, email
+FROM temporal;
+
+CREATE INDEX idx_email ON personas (email);
+SELECT * FROM personas WHERE email = 'gzip2023@example.com';
+--CREATE UNIQUE INDEX idx_email ON personas (email);
+
+--SELECT email, COUNT(*) AS veces_usado, nombre, primer_apellido, segundo_apellido
+--FROM personas
+--GROUP BY email
+--ORDER BY veces_usado ASC;
+
+EXPLAIN QUERY PLAN
+SELECT * FROM personas
+WHERE email='gzip2023@example.com' ;
